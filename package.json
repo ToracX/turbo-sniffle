@@ -1,7 +1,7 @@
 {
 	"name": "homebridge-dreamscreen",
 	"description": "An lightweight homebridge plugin for controlling and using dreamscreen ambilight.",
-	"version": "1.2.1",
+	"version": "1.2.0.1",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/NeoRame/homebridge-dreamscreen"
