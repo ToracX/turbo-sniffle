@@ -12,8 +12,9 @@ module.exports = function(homebridge) {
 function DreamscreenAccessory(log, config) {
 	this.name = config["name"];
 	this.ipadress = config["ipadress"];
-	this.ambilightName = "mode";
-	this.ModusName = "test";
+	this.ambilightName = "DS Video Modus";
+	this.AmbientName = "DS Ambient Modus";
+	this.MusicName = "DS Music Modus";
 	this.lightService = new Service.Lightbulb(this.name);
 	this.lightService.subtype = this.name;
 	this.infoService = new Service.AccessoryInformation();
@@ -94,29 +95,51 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.ModusService = new Service.Lightbulb(this.ModusName); 
-  	this.ModusService.subtype = this.ModusName;
+	this.AmbientService = new Service.Lightbulb(this.AmbientName); 
+  	this.AmbientService.subtype = this.AmbientName;
 
-	this.ModusService
+	this.AmbientService
 	.getCharacteristic(Characteristic.On)
 	.on('set', (value, callback) => {
 	if (value) {
 			this.log("Set Modus to", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 3"
 			exec(commandon)							
 			callback();
 	} else {
 			this.log("Set Modus to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 3"
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			exec(commandoff)					  
+			callback();
+		}
+	})
+	
+	this.MusicService = new Service.Lightbulb(this.MusicName); 
+  	this.MusicService.subtype = this.MusicName;
+
+	this.MusicService
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Set Music to", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 2"
+			exec(commandon)							
+			callback();
+	} else {
+			this.log("Set Music to", value)
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
 			exec(commandoff)					  
 			callback();
 		}
 	})
 
 	services.push(this.ambilightService); 
-	services.push(this.ModusService); 
+	services.push(this.AmbientService); 
+	services.push(this.MusicService); 
   	services.push(this.lightService); 
   	services.push(this.infoService);
 
