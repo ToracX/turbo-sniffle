@@ -187,7 +187,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene3 = new Service.Lightbulb("Holiday/ July 4th"); 
+	this.Scene3 = new Service.Switch("Holiday/ July 4th"); 
   	this.Scene3.subtype = "July 4th";
 
 	this.Scene3
@@ -210,7 +210,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene4 = new Service.Lightbulb("Forest/ Pop"); 
+	this.Scene4 = new Service.Switch("Forest/ Pop"); 
   	this.Scene4.subtype = "Pop";
 
 	this.Scene4
