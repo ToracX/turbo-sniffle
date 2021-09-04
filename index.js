@@ -15,7 +15,7 @@ function DreamscreenAccessory(log, config) {
 	this.ambilightName = "DS Video Modus";
 	this.AmbientName = "DS Ambient Modus";
 	this.MusicName = "DS Music Modus";
-	this.lightService = new Service.Lightbulb("4. Helligkeit");
+	this.lightService = new Service.Lightbulb("DS Helligkeit");
 	this.lightService.subtype = this.name;
 	this.infoService = new Service.AccessoryInformation();
     	this.log = log;
