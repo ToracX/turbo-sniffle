@@ -150,7 +150,8 @@ DreamscreenAccessory.prototype.getServices = function() {
 	this.infoService
 	.setCharacteristic(Characteristic.Manufacturer, "DreamScreen LCC")
 	.setCharacteristic(Characteristic.Model, "DreamScreen HD")
-	.setCharacteristic(Characteristic.SerialNumber, this.ipadress);
+	.setCharacteristic(Characteristic.SerialNumber, this.ipadress)
+	.setCharacteristic(Characteristic.FirmwareRevision, "1.6.1.7");
 
 	return services;
 };
