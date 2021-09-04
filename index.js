@@ -73,23 +73,23 @@ DreamscreenAccessory.prototype.getServices = function() {
 			callback();
 		}	
 	})
-	
-	this.MusicService = new Service.Lightbulb(this.MusicName); 
-  	this.MusicService.subtype = this.MusicName;
 
-	this.MusicService
+	this.ambilightService = new Service.Lightbulb(this.ambilightName); 
+  	this.ambilightService.subtype = this.ambilightName;
+
+	this.ambilightService
 	.getCharacteristic(Characteristic.On)
 	.on('set', (value, callback) => {
 	if (value) {
-			this.log("Set Music to", value)
+			this.log("Set dreamscreen power to", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 2"
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
 			exec(commandon)							
 			callback();
 	} else {
-			this.log("Set Music to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			this.log("Set dreamscreen power to", value)
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 0"
 			exec(commandoff)					  
 			callback();
 		}
@@ -115,33 +115,33 @@ DreamscreenAccessory.prototype.getServices = function() {
 			callback();
 		}
 	})
+	
+	this.MusicService = new Service.Lightbulb(this.MusicName); 
+  	this.MusicService.subtype = this.MusicName;
 
-	this.ambilightService = new Service.Lightbulb(this.ambilightName); 
-  	this.ambilightService.subtype = this.ambilightName;
-
-	this.ambilightService
+	this.MusicService
 	.getCharacteristic(Characteristic.On)
 	.on('set', (value, callback) => {
 	if (value) {
-			this.log("Set dreamscreen power to", value)
+			this.log("Set Music to", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 2"
 			exec(commandon)							
 			callback();
 	} else {
-			this.log("Set dreamscreen power to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 0"
+			this.log("Set Music to", value)
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
 			exec(commandoff)					  
 			callback();
 		}
 	})
-
-	services.push(this.ambilightService); 
-	services.push(this.AmbientService); 
-	services.push(this.MusicService); 
+	
   	services.push(this.lightService); 
   	services.push(this.infoService);
+	services.push(this.MusicService); 
+	services.push(this.AmbientService); 
+	services.push(this.ambilightService); 
 
 	this.infoService
 	.setCharacteristic(Characteristic.Manufacturer, "DreamScreen LCC")
