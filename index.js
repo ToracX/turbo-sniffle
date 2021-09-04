@@ -141,24 +141,93 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene1 = new Service.Switch("Fireside"); 
+	this.Scene1 = new Service.Switch("Fireside/ Twinkle"); 
   	this.Scene1.subtype = "Fireside";
 
 	this.Scene1
 	.getCharacteristic(Characteristic.On)
 	.on('set', (value, callback) => {
 	if (value) {
-			this.log("Set Modus to", value)
+			this.log("Set Scene to Twinkle", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 1"
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 2"
 			exec(commandon)							
 			callback();
 	} else {
-			this.log("Set Modus to", value)
+			this.log("Set Scene to Twinkle", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 1"
+			exec(commandoff)					  
+			callback();
+		}
+	})
+	
+	this.Scene2 = new Service.Switch("Ocean/ Rainbow"); 
+  	this.Scene2.subtype = "Ocean";
+
+	this.Scene2
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Set Scene to Rainbow", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 4"
+			exec(commandon)							
+			callback();
+	} else {
+			this.log("Set Scene to Rainbow", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 3"
+			exec(commandoff)					  
+			callback();
+		}
+	})
+	
+	this.Scene3 = new Service.Switch("July 4th/ Holiday"); 
+  	this.Scene3.subtype = "July 4th";
+
+	this.Scene3
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Set Scene to Holiday", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 6"
+			exec(commandon)							
+			callback();
+	} else {
+			this.log("Set Scene to Holiday", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 5"
+			exec(commandoff)					  
+			callback();
+		}
+	})
+	
+	this.Scene4 = new Service.Switch("Pop/ Forest"); 
+  	this.Scene4.subtype = "Pop";
+
+	this.Scene4
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Set Scene to Forest", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 8"
+			exec(commandon)							
+			callback();
+	} else {
+			this.log("Set Scene to Forest", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 7"
 			exec(commandoff)					  
 			callback();
 		}
@@ -169,6 +238,9 @@ DreamscreenAccessory.prototype.getServices = function() {
 	services.push(this.AmbientService); 
 	services.push(this.MusicService); 
   	services.push(this.Scene1);
+  	services.push(this.Scene2);
+  	services.push(this.Scene3);
+  	services.push(this.Scene4);
   	services.push(this.infoService);
 
 	this.infoService
