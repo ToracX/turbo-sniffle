@@ -74,8 +74,8 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}	
 	})
 
-	this.ambilightService = new Service.Switch("Video"); 
-  	this.ambilightService.subtype = "TEST";
+	this.ambilightService = new Service.Switch("Video", "Test"); 
+  	this.ambilightService.subtype = this.ambilightName;
 
 	this.ambilightService
 	.getCharacteristic(Characteristic.On)
@@ -95,7 +95,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.AmbientService = new Service.Lightbulb(this.AmbientName); 
+	this.AmbientService = new Service.Switch("Ambient"); 
   	this.AmbientService.subtype = this.AmbientName;
 
 	this.AmbientService
@@ -118,7 +118,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.MusicService = new Service.Lightbulb(this.MusicName); 
+	this.MusicService = new Service.Switch("Music"); 
   	this.MusicService.subtype = this.MusicName;
 
 	this.MusicService
