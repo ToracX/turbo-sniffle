@@ -74,7 +74,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}	
 	})
 
-	this.ambilightService = new Service.Lightbulb(this.ambilightName); 
+	this.ambilightService = new Service.Switch(this.ambilightName); 
   	this.ambilightService.subtype = this.ambilightName;
 
 	this.ambilightService
@@ -151,7 +151,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 	.setCharacteristic(Characteristic.Manufacturer, "DreamScreen LCC")
 	.setCharacteristic(Characteristic.Model, "DreamScreen HD")
 	.setCharacteristic(Characteristic.SerialNumber, this.ipadress)
-	.setCharacteristic(Characteristic.FirmwareRevision, "1.6.1.7");
+	.setCharacteristic(Characteristic.FirmwareRevision, "1.6.17");
 
 	return services;
 };
