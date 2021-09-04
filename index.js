@@ -141,7 +141,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene1 = new Service.Switch("Fireside/ Twinkle"); 
+	this.Scene1 = new Service.Switch("Twinkle/ Fireside"); 
   	this.Scene1.subtype = "Fireside";
 
 	this.Scene1
@@ -164,7 +164,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene2 = new Service.Switch("Ocean/ Rainbow"); 
+	this.Scene2 = new Service.Switch("Rainbow/ Ocean"); 
   	this.Scene2.subtype = "Ocean";
 
 	this.Scene2
@@ -187,7 +187,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene3 = new Service.Switch("July 4th/ Holiday"); 
+	this.Scene3 = new Service.Lightbulb("Holiday/ July 4th"); 
   	this.Scene3.subtype = "July 4th";
 
 	this.Scene3
@@ -210,7 +210,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.Scene4 = new Service.Switch("Pop/ Forest"); 
+	this.Scene4 = new Service.Lightbulb("Forest/ Pop"); 
   	this.Scene4.subtype = "Pop";
 
 	this.Scene4
