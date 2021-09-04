@@ -110,6 +110,8 @@ DreamscreenAccessory.prototype.getServices = function() {
 			callback();
 	} else {
 			this.log("Set Modus to", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
 			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
 			exec(commandoff)					  
 			callback();
@@ -123,14 +125,16 @@ DreamscreenAccessory.prototype.getServices = function() {
 	.getCharacteristic(Characteristic.On)
 	.on('set', (value, callback) => {
 	if (value) {
-			this.log("Set Music to", value)
+			this.log("Set Modus to", value)
 			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
 			this.lightService.setCharacteristic(Characteristic.Hue, 0);
 			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 2"
 			exec(commandon)							
 			callback();
 	} else {
-			this.log("Set Music to", value)
+			this.log("Set Modus to", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
 			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
 			exec(commandoff)					  
 			callback();
