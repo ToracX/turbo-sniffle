@@ -140,11 +140,35 @@ DreamscreenAccessory.prototype.getServices = function() {
 			callback();
 		}
 	})
+	
+	this.Scene1 = new Service.Switch("Fireside"); 
+  	this.Scene1.subtype = "Fireside";
 
+	this.Scene1
+	.getCharacteristic(Characteristic.On)
+	.on('set', (value, callback) => {
+	if (value) {
+			this.log("Set Modus to", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 1"
+			exec(commandon)							
+			callback();
+	} else {
+			this.log("Set Modus to", value)
+			this.lightService.setCharacteristic(Characteristic.Saturation, 0);
+			this.lightService.setCharacteristic(Characteristic.Hue, 0);
+			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
+			exec(commandoff)					  
+			callback();
+		}
+	})
+
+  	services.push(this.lightService);
 	services.push(this.ambilightService); 
 	services.push(this.AmbientService); 
 	services.push(this.MusicService); 
-  	services.push(this.lightService); 
+  	services.push(this.Scene1);
   	services.push(this.infoService);
 
 	this.infoService
