@@ -7,7 +7,6 @@ module.exports = function(homebridge) {
 	Characteristic = homebridge.hap.Characteristic;
 	UUIDGen = homebridge.hap.uuid;
 	homebridge.registerAccessory("homebridge-dreamscreen", "Dreamscreen", DreamscreenAccessory);
-	homebridge.registerAccessory("homebridge-dreamscreen", "DS-Scenes", DreamscreenScenes);
 };
 
 function DreamscreenAccessory(log, config) {
@@ -17,16 +16,6 @@ function DreamscreenAccessory(log, config) {
 	this.AmbientName = "DS Ambient Modus";
 	this.MusicName = "DS Music Modus";
 	this.lightService = new Service.Lightbulb("DS Helligkeit");
-	this.lightService.subtype = this.name;
-	this.infoService = new Service.AccessoryInformation();
-    	this.log = log;
-	this.log("Initialized '" + this.name + "'");
-}
-
-function DreamscreenScenes(log, config) {
-	this.name = config["name"];
-	this.ipadress = config["ipadress"];
-	this.lightService = new Service.Switch("TEST");
 	this.lightService.subtype = this.name;
 	this.infoService = new Service.AccessoryInformation();
     	this.log = log;
@@ -155,81 +144,6 @@ DreamscreenAccessory.prototype.getServices = function() {
 	services.push(this.ambilightService); 
 	services.push(this.AmbientService); 
 	services.push(this.MusicService); 
-  	services.push(this.lightService); 
-  	services.push(this.infoService);
-
-	this.infoService
-	.setCharacteristic(Characteristic.Manufacturer, "DreamScreen LCC")
-	.setCharacteristic(Characteristic.Model, "DreamScreen HD")
-	.setCharacteristic(Characteristic.SerialNumber, this.ipadress)
-	.setCharacteristic(Characteristic.FirmwareRevision, "1.6.17");
-
-	return services;
-}
-
-DreamscreenScenes.prototype.getServices = function() {
-	let services = [];
-	
-	this.FiresideService = new Service.Switch("1. Fireside"); 
-  	this.FiresideService.subtype = this.name;
-
-	this.FiresideService
-	.getCharacteristic(Characteristic.On)
-	.on('set', (value, callback) => {
-	if (value) {
-			this.log("Set dreamscreen power to", value)
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 1"
-			exec(commandon)							
-			callback();
-	} else {
-			this.log("Set dreamscreen power to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
-			exec(commandoff)					  
-			callback();
-		}
-	})
-	
-	this.TwinkleService = new Service.Switch("2. Twinkle"); 
-  	this.TwinkleService.subtype = this.name;
-
-	this.TwinkleService
-	.getCharacteristic(Characteristic.On)
-	.on('set', (value, callback) => {
-	if (value) {
-			this.log("Set Modus to", value)
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 2"
-			exec(commandon)							
-			callback();
-	} else {
-			this.log("Set Modus to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
-			exec(commandoff)					  
-			callback();
-		}
-	})
-	
-	this.OceanService = new Service.Switch("3. Ocean"); 
-  	this.OceanService.subtype = this.name;
-
-	this.OceanService
-	.getCharacteristic(Characteristic.On)
-	.on('set', (value, callback) => {
-	if (value) {
-			this.log("Set Modus to", value)
-			commandon = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -a 3"
-			exec(commandon)							
-			callback();
-	} else {
-			this.log("Set Modus to", value)
-			commandoff = "python " + __dirname + "/dreamscreen.py -i " + this.ipadress + " -m 1"
-			exec(commandoff)					  
-			callback();
-		}
-	})
-
-	services.push(this.FiresideService); 
-	services.push(this.TwinkleService); 
-	services.push(this.OceanService); 
   	services.push(this.lightService); 
   	services.push(this.infoService);
 
