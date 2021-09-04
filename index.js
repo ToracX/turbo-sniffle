@@ -136,12 +136,12 @@ DreamscreenAccessory.prototype.getServices = function() {
 			callback();
 		}
 	})
-	
+
+	services.push(this.ambilightService); 
+	services.push(this.AmbientService); 
+	services.push(this.MusicService); 
   	services.push(this.lightService); 
   	services.push(this.infoService);
-	services.push(this.MusicService); 
-	services.push(this.AmbientService); 
-	services.push(this.ambilightService); 
 
 	this.infoService
 	.setCharacteristic(Characteristic.Manufacturer, "DreamScreen LCC")
