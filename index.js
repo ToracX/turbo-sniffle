@@ -74,8 +74,8 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}	
 	})
 
-	this.ambilightService = new Service.Switch(this.ambilightName); 
-  	this.ambilightService.subtype = this.ambilightName;
+	this.ambilightService = new Service.Switch("Video"); 
+  	this.ambilightService.subtype = "TEST";
 
 	this.ambilightService
 	.getCharacteristic(Characteristic.On)
