@@ -28,13 +28,37 @@ update your ```~/.homebridge/config.json``` file with correct ip adress, see bel
 ## Using the plugin
 You get two accesoires packed in one tile, seperating them is completely possible 
 
-First accesoiry is the switch, this is used for setting the mode. 
+First accesoiry is the led slider, this has two main functions.
+* Changing brightness, simply by sliding to an exact percentage.
+* Changing color, when you change the color the dreamscreen gets set to ambient mode and will display the set color.
+
+Second accesoiry is the switch, this is used for setting the mode. 
 * Flipping it on enables video mode / amiblight. 
 * Flipping it off puts the dreamscreen to sleep.
 
-Second accesoiry is the led slider, this has two main functions.
-* Changing brightness, simply by sliding to an exact percentage.
-* Changing color, when you change the color the dreamscreen gets set to ambient mode and will display the set color.
+Third accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables ambient mode. 
+* Flipping it off puts the dreamscreen to video mode.
+
+4th accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables music mode. 
+* Flipping it off puts the dreamscreen to video mode.
+
+5th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Pop Scene. 
+* Flipping it off puts the dreamscreen to Forrest Scene.
+
+6th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables July 4th Scene. 
+* Flipping it off puts the dreamscreen to Holiday Scene.
+
+7th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Ocean Scene. 
+* Flipping it off puts the dreamscreen to Rainbow Scene.
+
+8th accesoiry is the switch, this is used for switch between ambient modes.
+* Flipping it on enables Twinkle Scene. 
+* Flipping it off puts the dreamscreen to Fireside Scene.
 
 
 ## Ideas for usage
