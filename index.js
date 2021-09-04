@@ -96,7 +96,6 @@ DreamscreenAccessory.prototype.getServices = function() {
 	})
 	
 	this.AmbientService = new Service.Lightbulb(this.AmbientName); 
-  	this.AmbientService.displayName = this.AmbientName;
   	this.AmbientService.subtype = this.AmbientName;
 
 	this.AmbientService
