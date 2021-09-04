@@ -15,7 +15,7 @@ function DreamscreenAccessory(log, config) {
 	this.ambilightName = "DS Video Modus";
 	this.AmbientName = "DS Ambient Modus";
 	this.MusicName = "DS Music Modus";
-	this.lightService = new Service.Lightbulb(this.name);
+	this.lightService = new Service.Lightbulb("Helligkeit");
 	this.lightService.subtype = this.name;
 	this.infoService = new Service.AccessoryInformation();
     	this.log = log;
@@ -74,7 +74,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}	
 	})
 
-	this.ambilightService = new Service.Switch("Video", "Test"); 
+	this.ambilightService = new Service.Lightbulb("1. Ambilight"); 
   	this.ambilightService.subtype = this.ambilightName;
 
 	this.ambilightService
@@ -95,7 +95,7 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.AmbientService = new Service.Switch("Ambient"); 
+	this.AmbientService = new Service.Lightbulb("2. Ambient"); 
   	this.AmbientService.subtype = this.AmbientName;
 
 	this.AmbientService
@@ -118,8 +118,8 @@ DreamscreenAccessory.prototype.getServices = function() {
 		}
 	})
 	
-	this.MusicService = new Service.Switch("Music"); 
-  	this.MusicService.subtype = this.MusicName;
+	this.MusicService = new Service.Lightbulb("3. Musik"); 
+  	this.MusicService.subtype = "DS Music Modus";
 
 	this.MusicService
 	.getCharacteristic(Characteristic.On)
