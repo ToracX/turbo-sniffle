@@ -6,7 +6,7 @@ module.exports = function(homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
 	UUIDGen = homebridge.hap.uuid;
-	homebridge.registerAccessory("homebridge-dreamscreen-plus", "Dreamscreen", DreamscreenAccessory);
+	homebridge.registerAccessory("homebridge-dreamscreen", "Dreamscreen", DreamscreenAccessory);
 };
 
 function DreamscreenAccessory(log, config) {
