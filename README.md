@@ -1,7 +1,9 @@
 # Overview
 
-Lightweight homebridge plugin that allows you to control your DreamScreen Ambient TV device with homekit.
-Features full control over color, video, ambient and sleep mode.                
+Lightweight homebridge plugin that allows you to control your DreamScreen Ambient TV device with HomeKit.
+Features full control over color, brightness, video, music, ambient and sleep mode. You can also activate 
+the 8 ambiant scenes (i didn't add the "random colors" scene)            
+
 It uses my python script featured here: https://github.com/ToracX/DreamScreenCommander
 
 
@@ -10,15 +12,22 @@ It uses my python script featured here: https://github.com/ToracX/DreamScreenCom
 
 install homebridge: ```npm install -g homebridge```                        
 install this plugin: ```npm install -g homebridge-dreamscreen```                   
-update your ```~/.homebridge/config.json``` file with correct ip adress, see below.
+update your ```~/.homebridge/config.json``` file with correct ip adress, see below. set 0 in "group" if you 
+dont use groups, and 1 if you use groups.
+
+Optional:
+-change the name shown in HomeKit
+-change your model from 4K to HD if you want, to shown the right name in the discription 
 
 ## Example config:
 #### Dont forget to set the correct ip.
 ```
 "accessories": [
   {
-   	  "accessory": "Dreamscreen",
-   	  "name": "TV Backlight",
+      "accessory": "Dreamscreen",
+      "name": "TV Backlight",
+      "model": "4K",
+      "group": 0,
       "ipadress": "192.168.178.187"
   }
 ]
@@ -26,38 +35,38 @@ update your ```~/.homebridge/config.json``` file with correct ip adress, see bel
 #### The ip adress of you're dreamscreen can be found in the app under "Update and Reset".
 
 ## Using the plugin
-You get two accesoires packed in one tile, seperating them is completely possible 
+You get eight accesoires packed in one tile, seperating them is completely possible
 
 First accesoiry is the led slider, this has two main functions.
 * Changing brightness, simply by sliding to an exact percentage.
 * Changing color, when you change the color the dreamscreen gets set to ambient mode and will display the set color.
 
-Second accesoiry is the switch, this is used for setting the mode. 
-* Flipping it on enables video mode / amiblight. 
-* Flipping it off puts the dreamscreen to sleep.
+Second accesoiry is the switch, this is used for setting the mode.
+* Flipping it on enables video mode / amiblight.
+* Flipping it off puts the dreamscreen to sleep mode.
 
 Third accesoiry is the switch, this is used for setting the mode.
-* Flipping it on enables ambient mode. 
+* Flipping it on enables ambient mode.
 * Flipping it off puts the dreamscreen to video mode.
 
 4th accesoiry is the switch, this is used for setting the mode.
-* Flipping it on enables music mode. 
+* Flipping it on enables music mode.
 * Flipping it off puts the dreamscreen to video mode.
 
 5th accesoiry is the switch, this is used for switch between ambient modes.
-* Flipping it on enables Pop Scene. 
+* Flipping it on enables Pop Scene.
 * Flipping it off puts the dreamscreen to Forrest Scene.
 
 6th accesoiry is the switch, this is used for switch between ambient modes.
-* Flipping it on enables July 4th Scene. 
+* Flipping it on enables July 4th Scene.
 * Flipping it off puts the dreamscreen to Holiday Scene.
 
 7th accesoiry is the switch, this is used for switch between ambient modes.
-* Flipping it on enables Ocean Scene. 
+* Flipping it on enables Ocean Scene.
 * Flipping it off puts the dreamscreen to Rainbow Scene.
 
 8th accesoiry is the switch, this is used for switch between ambient modes.
-* Flipping it on enables Twinkle Scene. 
+* Flipping it on enables Twinkle Scene.
 * Flipping it off puts the dreamscreen to Fireside Scene.
 
 
