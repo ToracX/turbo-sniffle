@@ -6,7 +6,7 @@
 		"type": "git",
 		"url": "https://github.com/NeoRame/homebridge-dreamscreen"
 	},
-	"author": "Torac",
+	"author": "NeoRame",
   	"engines": {
     		"homebridge": ">=0.2.0",
     		"node": ">4.0.0"
