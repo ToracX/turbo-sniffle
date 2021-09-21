@@ -1,0 +1,44 @@
+{
+    "pluginAlias": "Dreamscreen",
+    "pluginType": "accessory",
+    "singular": true,
+    "schema": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string",
+                "required": true,
+                "default": "DreamScreen HD"
+            },
+            "ipadress": {
+                "title": "IP address",
+                "type": "string",
+                "default": "192.168.1.6",
+                "required": true,
+                "format": "ipv4",
+                "description": "The IP adress of your DreamScreen (can be found in the App under *Update and Reset*)"
+            },
+            "group": {
+                "title": "Have you configured groups in DreamScreen?",
+                "type": "string",
+                "default": "0",
+                "oneOf": [
+                  { "title": "No", "enum": ["0"] },
+                  { "title": "Yes", "enum": ["1"] }
+                ],
+                "required": true
+            },
+            "model": {
+                "title": "Model",
+                "type": "string",
+                "default": "HD",
+                "oneOf": [
+                  { "title": "DreamScreen 4K", "enum": ["4K"] },
+                  { "title": "DreamScreen HD", "enum": ["HD"] }
+                ],
+                "required": true
+            }
+        }
+    }
+}
