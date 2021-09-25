@@ -1,3 +1,10 @@
+<img src='https://raw.githubusercontent.com/NeoRame/homebridge-dreamscreen/main/gfx/Dreamscreen_Logo.svg' wight='100%'>
+Control your DreamScreen with HomeKit
+
+#
+[![npm version](https://img.shields.io/npm/v/homebridge-dreamscreen?logoColor=white)](https://www.npmjs.com/package/homebridge-dreamscreen)
+[![npm downloads](https://img.shields.io/npm/dt/homebridge-dreamscreen)](https://www.npmjs.com/package/homebridge-dreamscreen)
+
 # Overview
 
 Lightweight homebridge plugin that allows you to control your DreamScreen Ambient TV device with homekit.
