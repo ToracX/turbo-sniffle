@@ -2,6 +2,7 @@
     "pluginAlias": "Dreamscreen",
     "pluginType": "accessory",
     "singular": true,
+    "headerDisplay": "<img src='https://raw.githubusercontent.com/NeoRame/homebridge-dreamscreen/main/gfx/Dreamscreen_Logo.svg' width='100%'>\n\nControl your DreamScreen with HomeKit",
     "schema": {
         "type": "object",
         "properties": {
